@@ -1,0 +1,149 @@
+<div class="calc">
+  <div class="calc__computation">
+    <div class="calc__computation__bar">
+      <app-tab-bar></app-tab-bar>
+    </div>
+
+    <form [formGroup]="form">
+      <div class="calc__computation__field">
+        <div class="calc__computation__field__title">Amount?</div>
+        <div>
+
+          <app-form-input formControlName="amount"
+                          [amount]="true"
+                          [minMax]="true"
+                          (isChangeable)="calculate($event)">
+          </app-form-input>
+        </div>
+      </div>
+
+      <ng-container>
+      <div class="calc__computation__field">
+        <div class="calc__computation__field__title">Currency?</div>
+        <div class="calc__computation__field__select">
+          <mat-form-field>
+            <mat-select formControlName="currency">
+
+              <app-form-input type="text" formControlName="search"></app-form-input>
+
+              <div class="calc__computation__field__select__inscription">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
+
+              <mat-select-trigger>
+                <div class="calc__computation__field__select__wrapper">
+                  <div class="calc__computation__field__select__wrapper__title">{{selectedValue?.title}}</div>
+                  <div class="calc__computation__field__select__wrapper__percent">APR {{selectedValue?.value}}%</div>
+                </div>
+              </mat-select-trigger>
+                  <mat-option *ngFor="let item of currencyList" [value]="item">
+                    <div class="calc__computation__field__select__wrapper">
+                      <div class="calc__computation__field__select__wrapper__title">{{item?.title}}</div>
+                      <div class="calc__computation__field__select__wrapper__percent">APR {{item?.value}}%</div>
+                    </div>
+                  </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+      </div>
+
+        <div style="margin: 1rem 0">
+          <app-test-task-select label="Currency?" [search]="true" [searchAlgorithm]="'includes'">
+
+            <app-test-task-option *ngFor="let item of currencyList" [value]="item?.title">
+              {{item?.title}} <span style="padding-left: 2rem">APR {{item?.value}}%</span>
+            </app-test-task-option>
+
+          </app-test-task-select>
+        </div>
+
+        <div style="margin: 1rem 0">
+          <app-test-task-select label="Period?">
+
+            <app-test-task-option *ngFor="let item of periodList$ | async" [value]="item">
+              {{item}}
+            </app-test-task-option>
+
+          </app-test-task-select>
+        </div>
+
+<!--      <div class="calc__computation__field">-->
+<!--        <div class="calc__computation__field__title">Period?</div>-->
+<!--        <div class="calc__computation__field__select">-->
+<!--          <mat-form-field>-->
+<!--            <mat-select formControlName="period">-->
+<!--              <mat-option *ngFor="let item of periodList$ | async" [value]="item">-->
+<!--                <div class="calc__computation__field__select__wrapper">-->
+<!--                  <div class="calc__computation__field__select__wrapper__title">{{item}}</div>-->
+<!--                </div>-->
+<!--              </mat-option>-->
+<!--            </mat-select>-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
+<!--      </div>-->
+      </ng-container>
+    </form>
+
+      <div class="calc__computation__info">
+        <div class="calc__computation__info__block">
+          <div class="calc__computation__info__block__title">Lorem ipsum</div>
+          <app-test-task-icon
+            name="toolTip"
+            color="grey-light"
+            hoverColor="turquoise"
+            appTooltip
+            content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cumque animi mollitia ipsam quae fuga voluptatibus aut quia autem nulla corrupti suscipit quam, rem'
+            [config]="{maxWidth: 350}"
+            [enabled]="true"
+          ></app-test-task-icon>
+        </div>
+
+        <mat-slide-toggle color="primary" [checked]="true"></mat-slide-toggle>
+
+        <app-toggle-checkbox></app-toggle-checkbox>
+
+        <div class="calc__computation__info__block">
+          <div class="calc__computation__info__block__title">Lorem ipsum dolor sit</div>
+          <app-test-task-icon
+            name="toolTip"
+            appTooltip
+            color="grey-light"
+            hoverColor="turquoise"
+            content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cumque animi mollitia ipsam quae fuga voluptatibus aut quia autem nulla corrupti suscipit quam, rem'
+            [config]="{maxWidth: 350}"
+            [enabled]="true"
+          ></app-test-task-icon>
+        </div>
+      </div>
+  </div>
+  <div class="calc__statistic">
+    <div class="calc__statistic__info">
+      <div class="calc__statistic__info__title">Profit</div>
+      <div class="calc__statistic__info__value">$ {{profit}}</div>
+    </div>
+    <div class="calc__statistic__info">
+      <div class="calc__statistic__info__title">Percent</div>
+      <div class="calc__statistic__info__value">{{percent}}%</div>
+      <div class="calc__statistic__info__inscription">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit
+      </div>
+    </div>
+    <div class="calc__statistic__action">
+      <div class="calc__statistic__action__star">
+        <app-test-task-icon name="star" color='white' hoverColor="gold"></app-test-task-icon>
+        <app-test-task-icon name="star" color='white' hoverColor="gold"></app-test-task-icon>
+        <app-test-task-icon name="star" color='white' hoverColor="gold"></app-test-task-icon>
+        <app-test-task-icon name="star" color='white' hoverColor="gold"></app-test-task-icon>
+        <app-test-task-icon name="star" color='white' hoverColor="gold"></app-test-task-icon>
+      </div>
+      <button class="calc__statistic__action__btn" (click)="onOpenModal($event)">Lorem ipsum dolor sit</button>
+    </div>
+    <div class="calc__statistic__inscription">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Minus cumque animi mollitia ipsam quae fuga voluptatibus aut quia autem nulla corrupti suscipit quam,
+      rem veniam, reiciendis, temporibus magni quis velit! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Minus cumque animi mollitia ipsam quae fuga voluptatibus aut quia autem nulla corrupti suscipit quam,
+      rem veniam, reiciendis, temporibus magni quis velit!
+      Lorem ipsum dolor sit amet consectetur adipisicing
+    </div>
+  </div>
+</div>

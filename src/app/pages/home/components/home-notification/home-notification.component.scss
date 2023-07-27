@@ -1,0 +1,21 @@
+.notification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  width: 100%;
+  flex-direction: column;
+
+  &-title {
+
+  }
+
+  &-inc {
+
+  }
+
+  &-btn {
+    display: flex;
+    justify-content: space-between;
+  }
+}

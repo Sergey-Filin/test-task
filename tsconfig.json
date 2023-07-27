@@ -2,10 +2,35 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
+    "paths": {
+      "@modules": [
+        "app/shared/modules"
+      ],
+      "@modules/*": [
+        "app/shared/modules/*"
+      ],
+      "@classes": [
+        "app/shared/classes"
+      ],
+      "@classes/*": [
+        "app/shared/classes/*"
+      ],
+      "@directives": [
+        "app/shared/directives"
+      ],
+      "@directives/*": [
+        "app/shared/directives/*"
+      ],
+      "@helpers": [
+        "app/shared/helpers"
+      ],
+      "@helpers/*": [
+        "app/shared/helpers/*"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,

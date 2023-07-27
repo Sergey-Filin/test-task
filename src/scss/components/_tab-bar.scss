@@ -1,0 +1,31 @@
+@use '../base/color' as *;
+
+
+.mat-mdc-tab-group .mat-mdc-tab-label-container {
+   flex-grow: unset;
+
+  & .mat-mdc-tab-list .mat-mdc-tab-labels .mdc-tab {
+    padding: 0;
+    height: 2.1rem;
+    min-width: 0;
+    margin-right: 3.1rem;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+
+    & .mdc-tab__content {
+      display: block;
+
+      & .mdc-tab__text-label {
+        color: $black;
+      }
+    }
+
+    & .mdc-tab-indicator .mdc-tab-indicator__content {
+      width: 4.5rem;
+      box-shadow: 0 .1rem .2rem rgba(86, 198, 173, 0.25);
+    }
+  }
+
+}
+

@@ -1,0 +1,28 @@
+<mat-form-field [ngClass]="amount? 'form-input' : 'form-input-search'">
+    <div class="form-input-wrapper">
+      <ng-container *ngIf="amount else search">
+        <span>$</span>
+      </ng-container>
+      <ng-template #search>
+        <mat-icon>search</mat-icon>
+      </ng-template>
+      <input matInput
+             #formInput
+             class="form__input"
+             [type]="type"
+             [value]="value"
+             (input)="onChangeValue($event)"
+             minMaxValue
+             [minMax]="minMax"
+      />
+      <div class="form-input-wrapper-btns" *ngIf="amount">
+        <mat-icon color="warn" (click)="calculate(calculateAction.DEC)">remove_circle</mat-icon>
+        <mat-icon color="primary" (click)="calculate(calculateAction.INC)">add_circle</mat-icon>
+      </div>
+    </div>
+
+
+  <mat-error>
+    Please enter a valid email address
+  </mat-error>
+</mat-form-field>

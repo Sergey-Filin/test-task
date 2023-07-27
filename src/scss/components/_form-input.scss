@@ -1,0 +1,73 @@
+@use '../base/color' as *;
+
+.form-input {
+  width: 100%;
+
+  & .mdc-text-field {
+    padding: 0 2.2rem;
+
+    & .mat-mdc-form-field-focus-overlay {
+      background-color: unset;
+    }
+
+    & .mdc-line-ripple::before, .mdc-line-ripple::after {
+      content: unset;
+    }
+
+  }
+
+  &-wrapper {
+    display: flex;
+
+    & .mat-mdc-input-element {
+      cursor: auto;
+      width: 6.5rem;
+    }
+
+    &-btns {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  mat-icon {
+    cursor: pointer;
+  }
+
+}
+
+
+.form-input-search {
+  width: 100%;
+
+  & .mdc-text-field {
+    padding: 0 2.2rem;
+    background-color: transparent;
+    border: .1rem solid $grey-white;
+    border-radius: .6rem;
+
+    & .mat-mdc-form-field-focus-overlay {
+      background-color: unset;
+    }
+
+    & .mdc-line-ripple::before, .mdc-line-ripple::after {
+      content: unset;
+    }
+
+  }
+
+  & .form-input-wrapper {
+    display: flex;
+
+    & .mat-mdc-input-element {
+      cursor: auto;
+      width: 100%;
+      padding-left: 1rem;
+    }
+  }
+
+  mat-icon {
+    cursor: pointer;
+  }
+
+}

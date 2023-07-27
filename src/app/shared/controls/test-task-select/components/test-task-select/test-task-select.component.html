@@ -1,0 +1,65 @@
+<app-test-task-form-field
+  #dropDownContainer
+  class="select-form-field-wrapper"
+  [cursor]="disabled ? 'default' : 'pointer'"
+  [label]="label"
+  [outline]="outline"
+  [disabled]="disabled"
+  [hint]="hint"
+  [hintPosition]="hintPosition"
+  [required]="isRequired"
+  [status]="status"
+  (contentClick)="showDropdown($event)"
+  (keydown)="onKeyDown($event)">
+<!--  appControlErrors (status)="onChangeStatus($event)"-->
+  <div class="select-container" #selectInput tabindex="0" >
+    <p *ngIf="!value; else displayedValue" class="select-content">
+      <span class="select-placeholder">{{ placeholder || label }}</span>
+    </p>
+    <ng-template #displayedValue>
+      <ng-container [ngSwitch]="displayType">
+        <ng-container *ngSwitchCase="'img'">
+          <div class="select-img-container">
+            <img *ngIf="!!value && display" [src]="display" [alt]="value"/>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'innerHTML'">
+          <div class="select-html-container" [innerHTML]="display"> </div>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <span class="select-value">{{ value }}</span>
+        </ng-container>
+      </ng-container>
+    </ng-template>
+  </div>
+  <app-test-task-dropdown
+    [reference]="dropDownContainer?.formFieldContent?.nativeElement"
+    #dropdownComp
+    [minWidth]="minWidth"
+    [additionalClass]="dropdownClass">
+    <div class="dropdown-container">
+      <ng-container *ngIf="maxCount">
+        <div class="dropdown-container-counter"> {{ selectedValues.length }}/{{ maxCount }} </div>
+      </ng-container>
+      <div class="dropdown-options-container container-fixed" style="min-width: 17rem" #optionsContainer>
+        <app-test-task-option *ngIf="filter" class="search" [notSelectable]="true">
+          <div class="search-option">
+            <label class="search-input">
+              <span class="search-input-icon"><i class="icon-search"></i></span>
+              <input #searchInput type="text" [formControl]="filter" [placeholder]="searchLabel" />
+            </label>
+          </div>
+        </app-test-task-option>
+        <app-test-task-option *ngIf="multiple && allLabel" value="all" class="select-option--all" #allSelectOption>
+          {{ allLabel }}
+        </app-test-task-option>
+        <app-test-task-option *ngIf="resetLabel && !multiple && value" [value]="null">
+          {{ resetLabel }}
+        </app-test-task-option>
+        <ng-content select="app-test-task-option"></ng-content>
+        <ng-content select="app-test-task-group"></ng-content>
+      </div>
+    </div>
+    </app-test-task-dropdown>
+    <i appSuffix class="icon-test-task-select-arrow"></i>
+</app-test-task-form-field>

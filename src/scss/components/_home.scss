@@ -1,0 +1,226 @@
+@use '../base/color' as *;
+
+app-root {
+  margin: 0 auto;
+  background-image: url("/assets/images/main-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.calc {
+  width: 128rem;
+  height: 52.4rem;
+
+  background: #FFFFFF;
+  box-shadow: 0 0 4rem rgba(86, 198, 173, 0.13);
+  border-radius: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  &__computation {
+    padding: 4rem 9.3rem 4rem 4.5rem;
+    width: 100%;
+
+    &__bar {
+      margin-bottom: 4.5rem;
+    }
+
+    &__field {
+
+      &__title {
+        margin-bottom: 1.2rem;
+      }
+
+      &__select {
+
+        &__inscription{
+          color: $grey;
+          border-bottom: 0.1rem solid $grey-white;
+          padding: 1.4rem 1.6rem;
+          margin-bottom: 2.7rem;
+        }
+
+        & .mat-mdc-form-field {
+          width: 100%;
+          color: $black;
+
+          & .mdc-line-ripple::before, .mdc-line-ripple::after {
+            content: unset;
+          }
+
+          & .mat-mdc-form-field-focus-overlay {
+            background-color: unset;
+          }
+
+          & .mat-mdc-select-arrow {
+            background-image: url("~assets/images/icons/arrow.svg");
+            width: 1.6rem;
+            height: 1.6rem;
+
+            & svg {
+              display:none;
+            }
+          }
+        }
+
+        &__wrapper {
+          display: flex;
+
+          &__title {
+            margin-right: 2.2rem;
+          }
+
+          &__percent {
+            background-color: $turquoise-fair;
+            padding: .3rem .5rem;
+            color: white;
+            text-transform: uppercase;
+            border-radius: .4rem;
+          }
+        }
+      }
+    }
+
+    &__info {
+      display: flex;
+
+      &__block {
+        display: flex;
+        margin-right: 3.6rem;
+
+        &__title {
+          display: flex;
+          align-items: center;
+          margin-right: 1rem;
+        }
+
+        & app-test-task-icon {
+          display: flex;
+          align-items: center;
+        }
+
+        &:nth-child(3) {
+          margin-left: 1.6rem;
+        }
+      }
+    }
+  }
+
+  .mat-mdc-slide-toggle .mdc-switch {
+    width: 6.2rem;
+
+    & .mdc-switch__track {
+      height: 3.2rem;
+      border-radius: 5rem;
+    }
+
+    & .mdc-switch__handle {
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 5rem;
+
+      & .mdc-switch__icons {
+        display: none;
+      }
+    }
+  }
+
+  .mat-mdc-slide-toggle {
+    & .mdc-switch--unselected .mdc-switch__handle {
+      left: .5rem;
+
+    }
+    & .mdc-switch--selected .mdc-switch__handle {
+      left: -1rem;
+    }
+  }
+
+
+  &__statistic {
+    background-color: $turquoise;
+    width: 59.5rem;
+    min-width: 59.5rem;
+    padding: 4rem 5rem 2rem 5rem;
+    color: white;
+
+    &__info {
+
+      margin-bottom: 3.6rem;
+
+      &__title {
+        font-weight: 400;
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+        margin-bottom: .6rem;
+      }
+
+      &__value {
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 5.5rem;
+        line-height: 6.4rem;
+      }
+
+      &__inscription {
+        font-weight: 400;
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+      }
+    }
+
+    &__action {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3.3rem;
+
+      &__star {
+        $total-children: 5;
+        $widths: 1.7rem, 2.0rem, 2.2rem, 2.3rem, 2.4rem;
+        $heights: 1.6rem, 1.9rem, 2.1rem, 2.2rem, 2.3rem;
+        @for $i from 1 through $total-children {
+          > *:nth-child(#{$i}) svg {
+            width: nth($widths, $i);
+            height: nth($heights, $i);
+            margin-right: .7rem;
+            cursor: pointer;
+          }
+        }
+        display: flex;
+        align-items: center;
+      }
+
+      &__btn {
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        border: .2rem solid white;
+        border-radius: .7rem;
+        color: white;
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 2.1rem;
+        background-color: transparent;
+        padding: 1.3rem 5.4rem;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+    }
+
+    &__inscription {
+      font-weight: 300;
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+    }
+  }
+}
+

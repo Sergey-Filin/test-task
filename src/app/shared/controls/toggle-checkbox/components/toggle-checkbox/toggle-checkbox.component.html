@@ -1,0 +1,19 @@
+<!--<label *ngIf="!!label" class="form-field__label" [ngClass]="{required: !!required, checked: !!controlValue}">{{-->
+<!--  label-->
+<!--  }}</label>-->
+<div
+  class="form__toggle"
+  [class.test-task__toggle]="seazoneControl"
+  [class.disabled]="disabled"
+  (click)="stopPropagation($event)">
+  <input
+    #input
+    (click)="handleClick($event)"
+    class="form__toggle-input"
+    type="checkbox"
+    [checked]="controlValue"
+    [disabled]="disabled"
+    [id]="id"
+    (blur)="onTouched()" />
+  <label class="form__toggle-label" [class.test-task__toggle-label]="seazoneControl" [attr.for]="id"></label>
+</div>

@@ -1,0 +1,20 @@
+<div class="select-option" #option>
+  <div
+    *ngIf="multiple && !notSelectable; else defaultOption">
+    <ng-container *ngTemplateOutlet="optionContent"></ng-container>
+  </div>
+<!--  <app-seazone-checkbox-->
+<!--    *ngIf="multiple && !notSelectable; else defaultOption"-->
+<!--    [value]="selectedOption"-->
+<!--    [boatControl]="false"-->
+<!--    [disabled]="disabled">-->
+<!--    <ng-container *ngTemplateOutlet="optionContent"></ng-container>-->
+<!--  </app-seazone-checkbox>-->
+  <ng-template #defaultOption>
+    <ng-container *ngTemplateOutlet="optionContent"></ng-container>
+  </ng-template>
+</div>
+
+<ng-template #optionContent>
+  <ng-content></ng-content>
+</ng-template>

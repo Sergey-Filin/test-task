@@ -1,0 +1,55 @@
+$font-path: '/assets/fonts/';
+
+@font-face {
+  font-display: swap;
+  font-family: 'Fontello';
+  src: url('#{$font-path}Fontello/font/fontello.woff') format('woff'),
+  url('#{$font-path}Fontello/font/fontello.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  src: url('#{$font-path}Roboto/Roboto-Regular.ttf') format('ttf'),
+  url('#{$font-path}Roboto/Roboto-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  src: url('#{$font-path}Roboto/Roboto-Medium.ttf') format('ttf'),
+  url('#{$font-path}Roboto/Roboto-Medium.ttf') format('ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  src: url('#{$font-path}Roboto/Roboto-Light.ttf') format('ttf'),
+  url('#{$font-path}Roboto/Roboto-Light.ttf') format('ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  src: url('#{$font-path}Roboto/Roboto-Bold.ttf') format('ttf'),
+  url('#{$font-path}Roboto/Roboto-Bold.ttf') format('ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  src: url('#{$font-path}Roboto/Roboto-Black.ttf') format('ttf'),
+  url('#{$font-path}Roboto/Roboto-Black.ttf') format('ttf');
+  font-weight: 900;
+  font-style: normal;
+}

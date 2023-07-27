@@ -1,0 +1,33 @@
+<div class="form-field--wrapper" [ngClass]="wrapperStyling" (click)="onContainerClick($event)">
+  <label *ngIf="!!label" class="form-field--label">
+    <span [class.required]="required">{{ label }}</span>
+    <span *ngIf="!!hint && hintPosition === 'top'" class="form-field--hint">{{ hint }}</span>
+  </label>
+  <div
+    #formFieldContent
+    class="form-field--content"
+    [class.large]="large"
+    [style.cursor]="disabled ? 'default' : cursor"
+    [ngClass]="{
+      'form-field--content-outline': outline,
+      active: active,
+      disabled: disabled,
+      readonly: readonly
+    }"
+    (click)="onContentClick($event)">
+
+    <div class="form-field--content-prefix">
+      <ng-content select="[appPrefix]"></ng-content>
+    </div>
+    <div class="form-field--content-wrapper">
+      <ng-content></ng-content>
+    </div>
+    <div class="form-field--content-suffix">
+      <ng-content select="[appSuffix]"></ng-content>
+    </div>
+<!--    <span *ngIf="status === 'valid' && hint && hintPosition === 'bottom'" class="form-field&#45;&#45;hint bottom-hint">-->
+<!--      {{hint}}-->
+<!--    </span>-->
+
+  </div>
+</div>
